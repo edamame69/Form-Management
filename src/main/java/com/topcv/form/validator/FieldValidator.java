@@ -1,4 +1,7 @@
 package com.topcv.form.validator;
 
-public class FieldValidator {
+import com.topcv.form.entity.Field;
+
+public interface FieldValidator {
+    String validate(String value, Field field);
 }
