@@ -1,0 +1,18 @@
+services:
+  form-management:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: form-management:latest
+    container_name: form-management-app
+    ports:
+      - "8081:8081"
+    environment:
+      JAVA_OPTS: "-Xmx512m -Xms256m"
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:8081/api-docs"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 40s
+    restart: unless-stopped

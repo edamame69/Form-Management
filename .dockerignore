@@ -1,0 +1,30 @@
+# Build artifacts
+target/
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Git
+.git/
+.gitignore
+.gitattributes
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Docs
+README.md
+LICENSE
+
+# Test reports
+test-output/
+surefire-reports/
