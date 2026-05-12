@@ -52,4 +52,20 @@ public class GlobalExceptionHandler {
         );
         return ResponseEntity.badRequest().body(error);
     }
+
+    @ExceptionHandler(SubmissionValidationException.class)
+    public ResponseEntity<ErrorResponse> handleSubmissionValidation(
+            SubmissionValidationException ex,
+            HttpServletRequest request) {
+
+        ErrorResponse error = new ErrorResponse(
+                LocalDateTime.now(),
+                HttpStatus.BAD_REQUEST.value(),
+                "Submission Validation Failed",
+                ex.getMessage(),
+                request.getRequestURI(),
+                ex.getFieldErrors()
+        );
+        return ResponseEntity.badRequest().body(error);
+    }
 }
